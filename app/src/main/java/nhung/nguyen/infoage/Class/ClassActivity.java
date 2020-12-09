@@ -32,10 +32,7 @@ public class ClassActivity extends AppCompatActivity {
                             getSupportFragmentManager().beginTransaction().replace(R.id.content,new Student()).commit();
 
                             break;
-                        case R.id.nav_discuss:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.content,new Discussion()).commit();
 
-                            break;
                     }
 
                     return false;
