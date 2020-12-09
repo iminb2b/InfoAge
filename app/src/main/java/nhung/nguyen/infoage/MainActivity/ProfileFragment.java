@@ -83,20 +83,20 @@ public class ProfileFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users");
+        databaseReference = firebaseDatabase.getReference(getString(R.string.profilePath));
         avatarIv= view.findViewById(R.id.avatarIv);
         nameTv= view.findViewById(R.id.nameTv);
         emailTv= view.findViewById(R.id.emailTv);
         phoneTv= view.findViewById(R.id.phoneTv);
-        Query query =databaseReference.orderByChild("email").equalTo(user.getEmail());
+        Query query =databaseReference.orderByChild(getString(R.string.profileEmail)).equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
-                    String name = ""+ds.child("name").getValue();
-                    String email=""+ds.child("email").getValue();
-                    String phone=""+ds.child("email").getValue();
-                    String image=""+ds.child("image").getValue();
+                    String name = ""+ds.child(getString(R.string.profileName)).getValue();
+                    String email=""+ds.child(getString(R.string.profileEmail)).getValue();
+                    String phone=""+ds.child(getString(R.string.profilePhone)).getValue();
+                    String image=""+ds.child(getString(R.string.profileImage)).getValue();
 
                     nameTv.setText(name);
                     emailTv.setText(email);

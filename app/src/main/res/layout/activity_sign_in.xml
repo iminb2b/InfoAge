@@ -24,7 +24,7 @@
         android:textColor="#fff"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="Stay Signed in to your account to make searching easier."
+        android:text="@string/signInStay"
         android:textSize="19dp" />
     <EditText
         android:id="@+id/editTextTextPersonName"

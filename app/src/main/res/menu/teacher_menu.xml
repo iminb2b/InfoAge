@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Home"
+    <item android:title="@string/teacherMenuHome"
         android:id="@+id/nav_home">
 
     </item>
@@ -8,12 +8,12 @@
         android:id="@+id/classes"
         android:title="@string/classes"
         />
-    <item android:title="Student"
+    <item android:title="@string/teacherMenuStudent"
         android:id="@+id/nav_student">
 
     </item>
     <item
-        android:id="@+id/carlendar"
+        android:id="@+id/calendar"
         android:title="@string/calendar"
         />
 

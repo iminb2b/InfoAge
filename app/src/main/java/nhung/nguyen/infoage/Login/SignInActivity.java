@@ -48,7 +48,7 @@ public class SignInActivity extends AppCompatActivity {
         final EditText password = findViewById(R.id.editTextTextPassword);
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN
-        ).requestIdToken("1051380028326-lnkmdo5o4j275vl85f3bd4rfse6hsa2g.apps.googleusercontent.com")
+        ).requestIdToken(getString(R.string.signInIDRequestToken))
                 .requestEmail().build();
         //
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
@@ -66,10 +66,10 @@ public class SignInActivity extends AppCompatActivity {
                 String email = username.getText().toString().trim();
                 String pw = password.getText().toString().trim();
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    username.setError("Invalid Email");
+                    username.setError(getString(R.string.signInNameError));
                     username.setFocusable(true);
                 }else if(pw.length()<6){
-                    password.setError("Password should be longer than 6 characters.");
+                    password.setError(getString(R.string.signInPasswordLen));
                     password.setFocusable(true);
                 }else{
                     loginUser(email,pw);
@@ -97,13 +97,13 @@ public class SignInActivity extends AppCompatActivity {
                                 String email = user.getEmail();
                                 String uid = user.getUid();
                                 HashMap<Object, String> hashMap = new HashMap<>();
-                                hashMap.put("email",email);
-                                hashMap.put("uid", uid);
-                                hashMap.put("name","");
-                                hashMap.put("phone","");
-                                hashMap.put("image","");
+                                hashMap.put(getString(R.string.signInEmail),email);
+                                hashMap.put(getString(R.string.signInUid), uid);
+                                hashMap.put(getString(R.string.signInName),getString(R.string.signInBlank));
+                                hashMap.put(getString(R.string.signInPhone),getString(R.string.signInBlank));
+                                hashMap.put(getString(R.string.signInImage),getString(R.string.signInBlank));
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference reference = database.getReference("Users");
+                                DatabaseReference reference = database.getReference(getString(R.string.signInPath));
                                 reference.child(uid).setValue(hashMap);
                          //   }
 
@@ -111,7 +111,7 @@ public class SignInActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(SignInActivity.this, "Authentication failed.",
+                            Toast.makeText(SignInActivity.this, getString(R.string.signInAuthFail),
                                     Toast.LENGTH_SHORT).show();
                         }
 
@@ -119,7 +119,7 @@ public class SignInActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(SignInActivity.this,"Wrong username or password",Toast.LENGTH_LONG).show();
+                Toast.makeText(SignInActivity.this,getString(R.string.signInOnFail),Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -137,7 +137,7 @@ public class SignInActivity extends AppCompatActivity {
         if (requestCode == 100) {
             Task<GoogleSignInAccount> signInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data);
             if (signInAccountTask.isSuccessful()) {
-                String s = "Google sign in successful";
+                String s = getString(R.string.googleSignIn);
                 displayToast(s);
                 try {
                     GoogleSignInAccount googleSignInAccount = signInAccountTask
@@ -152,18 +152,18 @@ public class SignInActivity extends AppCompatActivity {
                                     String email = user.getEmail();
                                     String uid = user.getUid();
                                     HashMap<Object, String> hashMap = new HashMap<>();
-                                    hashMap.put("email",email);
-                                    hashMap.put("uid", uid);
-                                    hashMap.put("name","");
-                                    hashMap.put("phone","");
-                                    hashMap.put("image","");
+                                    hashMap.put(getString(R.string.signInEmail),email);
+                                    hashMap.put(getString(R.string.signInUid), uid);
+                                    hashMap.put(getString(R.string.signInName),getString(R.string.signInBlank));
+                                    hashMap.put(getString(R.string.signInPhone),getString(R.string.signInBlank));
+                                    hashMap.put(getString(R.string.signInImage),getString(R.string.signInBlank));
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference reference = database.getReference("Users");
+                                    DatabaseReference reference = database.getReference(getString(R.string.signInPath));
                                     reference.child(uid).setValue(hashMap);
                                     startActivity(new Intent(SignInActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                                    displayToast("firebase authentication success");
+                                    displayToast(getString(R.string.googleFBAS));
                                 } else {
-                                    displayToast("Authentication failed :" + task.getException().getMessage());
+                                    displayToast(getString(R.string.googleFBAF) + task.getException().getMessage());
                                 }
                             }
                         });

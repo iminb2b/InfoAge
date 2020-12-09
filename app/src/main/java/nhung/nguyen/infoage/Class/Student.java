@@ -89,17 +89,17 @@ public class Student extends Fragment {
         userList = new ArrayList<>();
 
         final FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(getString(R.string.discussionPath));
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()){
-                    String email = ds.child("email").getValue().toString();
-                    String image = ds.child("image").getValue().toString();
-                    String name = ds.child("name").getValue().toString();
-                    String phone = ds.child("phone").getValue().toString();
-                    String uid = ds.child("uid").getValue().toString();
+                    String email = ds.child(getString(R.string.discussionEmail)).getValue().toString();
+                    String image = ds.child(getString(R.string.discussionImage)).getValue().toString();
+                    String name = ds.child(getString(R.string.discussionName)).getValue().toString();
+                    String phone = ds.child(getString(R.string.discussionPhone)).getValue().toString();
+                    String uid = ds.child(getString(R.string.discussionUid)).getValue().toString();
                     ModelUser modelUser= new ModelUser(email, image, name, phone, uid);
                     userList.add(modelUser);
                     adapterUser = new AdapterUser(getActivity(), userList);

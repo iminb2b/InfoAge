@@ -14,13 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Coding floow"
+        android:text="@string/navHeaderCodingFlow"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="email@gmail.com"
+        android:text="@string/navHeaderEmail"
         />
 
 

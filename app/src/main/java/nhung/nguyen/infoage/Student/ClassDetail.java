@@ -64,7 +64,7 @@ public class ClassDetail extends AppCompatActivity  implements NavigationView.On
         //String lang;
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("English");
+        DatabaseReference myRef = database.getReference(getString(R.string.studentEng));
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -101,8 +101,8 @@ public class ClassDetail extends AppCompatActivity  implements NavigationView.On
         menuInflater.inflate(R.menu.menu_search,menu);
         MenuItem menuItem = menu.findItem(R.id.search_view);
         SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setQueryHint("Search");
-        Toast.makeText(getApplicationContext(),"hello",Toast.LENGTH_LONG).show();
+        searchView.setQueryHint(getString(R.string.studentSearch));
+        Toast.makeText(getApplicationContext(),getString(R.string.studentHello),Toast.LENGTH_LONG).show();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="#fff"
-            android:text="Choose your language"
+            android:text="@string/newClassChooseLang"
             android:textSize="20dp" />
 
         <Spinner
@@ -61,7 +61,7 @@
             android:layout_height="50dp"
             android:textColor="#fff"
             android:paddingTop="10dp"
-            android:text="Please enter instructor name"
+            android:text="@string/newClassInstructorName"
             android:textSize="20dp" />
 
         <EditText
@@ -70,14 +70,14 @@
             android:background="#FFF"
             android:paddingStart="15dp"
             android:layout_height="50dp"
-            android:hint="Instructor name" />
+            android:hint="@string/newClassInstructorHint" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="#fff"
             android:paddingTop="10dp"
-            android:text="Description"
+            android:text="@string/newClassDesc"
             android:textSize="20dp" />
 
         <EditText
@@ -86,7 +86,7 @@
             android:background="#FFF"
             android:paddingStart="15dp"
             android:layout_height="100dp"
-            android:hint="Description" />
+            android:hint="@string/newClassDesc" />
 
 
         <Button
@@ -97,6 +97,6 @@
             android:layout_gravity="center"
             android:background="@drawable/roundedbutton"
             android:layout_margin="30dp"
-            android:text="Create Class" />
+            android:text="@string/newClassClass" />
     </LinearLayout>
 </ScrollView>

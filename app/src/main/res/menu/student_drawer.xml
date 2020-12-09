@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Home"
+    <item android:title="@string/studentDrawerHome"
         android:id="@+id/nav_home">
 
     </item>
     <item android:id="@+id/find_class"
-        android:title="Find Class">
+        android:title="@string/studentDrawerFindClass">
     </item>
     <item
         android:id="@+id/classes"
@@ -17,7 +17,7 @@
         android:title="@string/calendar"
         />
     <item android:id="@+id/nav_teacher"
-        android:title="Teacher">
+        android:title="@string/studentDrawerTeacher">
 
     </item>
     <item

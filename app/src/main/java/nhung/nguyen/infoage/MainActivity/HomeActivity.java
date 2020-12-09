@@ -34,7 +34,9 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
     //ArrayList<String> classes = new ArrayList<>(R.array.language);
-    String [] classes={"English","French","Vietnamese"};
+    String [] classes={getString(R.string.homeActivityEng),getString(R.string.homeActivityFn),getString(R.string.homeActivityVt)};
+    //String [] classes={getString(R.string.homeActivityLang)};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +63,7 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
         menuInflater.inflate(R.menu.menu_search,menu);
         MenuItem menuItem = menu.findItem(R.id.search_view);
         SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setQueryHint("Search");
+        searchView.setQueryHint(getString(R.string.homeActivitySearch));
        // Toast.makeText(getApplicationContext(),"hello",Toast.LENGTH_LONG).show();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -38,7 +38,7 @@
                     android:id="@+id/nameTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:text="@string/profileName"
                     android:textSize="22dp"
                     android:layout_marginStart="5dp"
                     android:textColor="#fff"
@@ -47,7 +47,7 @@
                     android:id="@+id/emailTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email"
+                    android:text="@string/profileEmail"
                     android:layout_marginStart="5dp"
                     android:textColor="#fff"
                     android:layout_marginLeft="5dp"/>
@@ -55,7 +55,7 @@
                     android:id="@+id/phoneTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Phone"
+                    android:text="@string/profilePhone"
                     android:layout_marginStart="5dp"
                     android:textColor="#fff"
                     android:layout_marginLeft="5dp"/>

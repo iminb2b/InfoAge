@@ -52,7 +52,7 @@ public class SettingActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             firebaseAuth.signOut();
-                            Toast.makeText(getApplicationContext(),"signout",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), getString(R.string.settingSignout),Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }

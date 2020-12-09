@@ -83,4 +83,122 @@
     <string-array name="time">
 
     </string-array>
+
+    <!-- Class Strings-->
+    <string name="discussionPath">Users</string>
+    <string name="discussionUid">uid</string>
+    <string name="discussionName">name</string>
+    <string name="discussionSender">sender</string>
+    <string name="discussionMessage">message</string>
+    <string name="discussionChat">Chats</string>
+    <string name="discussionBlank">""</string>
+    <string name="discussionEmail">email</string>
+    <string name="discussionPhone">phone</string>
+    <string name="discussionImage">image</string>
+
+
+    <!--Login Strings-->
+    <string name="signInEmail">email</string>
+    <string name="signInUid">uid</string>
+    <string name="signInName">name</string>
+    <string name="signInPhone">phone</string>
+    <string name="signInImage">image</string>
+    <string name="signInBlank">""</string>
+    <string name="signInPath">Users</string>
+    <!-- Settings Strings -->
+    <string name="settingSignout">Signout</string>
+    <!-- Sign In Strings -->
+    <string name="signInIDRequestToken">1051380028326-lnkmdo5o4j275vl85f3bd4rfse6hsa2g.apps.googleusercontent.com</string>
+    <string name="signInNameError">Invalid Email</string>
+    <string name="signInPasswordLen">Password should be longer than 6 characters.</string>
+    <string name="signInAuthFail">Authentication failed.</string>
+    <string name="signInOnFail">Wrong username or password</string>
+    <string name="googleSignIn">Google sign in successful</string>
+    <string name="googleFBAS">firebase authentication success</string>
+    <string name="googleFBAF">Authentication failed :</string>
+    <!-- Sign Up Strings -->
+    <string name="signUpCreationFail">Failed to create user</string>
+    <string name="signUpPasswordLen">Password should be longer than 6 characters.</string>
+    <string name="signUpEmailInvalid">Invalid Email</string>
+    <string name="signUpEmptyEmail">Email is Required.</string>
+    <string name="signUpEmptyPassword">Password is required.</string>
+
+    <!-- Main Activity Strings -->
+    <!-- Home Activity -->
+    <string name="homeActivityEng">English</string>
+    <string name="homeActivityFn">French</string>
+    <string name="homeActivityVt">Vietnamese</string>
+    <string name="homeActivitySearch">Search</string>
+    <!-- Main XML Strings -->
+    <string name="mainActivitySlogan">Never stop seeking knowledge</string>
+    <string name="mainActivitySignIn">Sign In</string>
+    <string name="mainActivitySignUp">Sign Up</string>
+    <!-- New Class XML Strings -->
+    <string name="newClassCreate">Create New Class</string>
+    <string name="newClassChooseLang">Choose your language</string>
+    <string name="newClassInstructorName">Please enter instructor name</string>
+    <string name="newClassInstructorHint">Instructor name</string>
+    <string name="newClassDesc">Description</string>
+    <string name="newClassClass">Create Class</string>
+
+    <!-- Settings XML-->
+    <string name="settingsLogout">Logout</string>
+
+    <!-- Sign In XML -->
+    <string name="signInStay">Stay Signed in to your account to make searching easier.</string>
+    <string name="signInReEnter">Re-enter Password</string>
+    <string name="signInEmailHint">Email</string>
+    <string name="signInAgreeTo">Agree to</string>
+    <string name="signInTOS">Term Of Service</string>
+    <string name="signInAlready">Already have account? </string>
+    <string name="signInSignIn">Sign In</string>
+
+    <!-- Fragment Discussion XML -->
+    <string name="fragmentDiscussionStart">Start typing</string>
+
+    <!-- Profile Fragment XML -->
+    <string name="profilePath">Users</string>
+    <string name="profileName">name</string>
+    <string name="profileEmail">email</string>
+    <string name="profilePhone">phone</string>
+    <string name="profileImage">image</string>
+
+    <!-- Nav Header XML -->
+    <string name="navHeaderCodingFlow">Coding flow</string>
+    <string name="navHeaderEmail">email@gmail.com</string>
+
+    <!-- Show Chats XML -->
+    <string name="showChatMsg">My msg</string>
+
+    <!-- User XML -->
+    <string name="userPersonalName">Personal name</string>
+    <string name="userPersonalEmail">Personal Email</string>
+
+    <!-- Student Strings -->
+    <string name="studentEng">English</string>
+    <string name="studentFn">French</string>
+    <string name="studentVt">Vietnamese</string>
+    <string name="studentSearch">Search</string>
+    <string name="studentHello">hello</string>
+    <string name="studentLang">lang</string>
+
+    <!-- Menus -->
+    <!-- Bottom Menu-->
+    <string name="bottomMenuDashboard">Dashboard</string>
+    <string name="bottomMenuDiscuss">Discuss</string>
+    <string name="bottomMenuStudent">Student</string>
+    <!-- Menu Search-->
+    <string name="menuSearch">Search</string>
+    <!-- Nav Drawer -->
+    <string name="drawerSettings">Setting</string>
+    <!-- Student Drawer-->
+    <string name="studentDrawerHome">Home</string>
+    <string name="studentDrawerFindClass">Find Class</string>
+    <string name="studentDrawerTeacher">Teacher</string>
+    <!-- Teacher Menu -->
+    <string name="teacherMenuHome">Home</string>
+    <string name="teacherMenuStudent">Student</string>
+
+
+
 </resources>

@@ -92,14 +92,14 @@ public class Discussion extends Fragment {
        // hisUid = intent.getStringExtra("hisUid");
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        userDbref= firebaseDatabase.getReference("Users");
+        userDbref= firebaseDatabase.getReference(getString(R.string.discussionPath));
         msg= view.findViewById(R.id.messageEt);
-        Query userQuery = userDbref.orderByChild("uid").equalTo(myUid);
+        Query userQuery = userDbref.orderByChild(getString(R.string.discussionUid)).equalTo(myUid);
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds:snapshot.getChildren()){
-                    String name = ds.child("name").getValue().toString();
+                    String name = ds.child(getString(R.string.discussionName)).getValue().toString();
                 }
             }
 
@@ -124,11 +124,11 @@ public class Discussion extends Fragment {
     private void sendMsg(String mesg){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("sender",myUid);
+        hashMap.put(getString(R.string.discussionSender),myUid);
         //hashMap.put("receiver",hisUid);
-        hashMap.put("message",mesg);
-        databaseReference.child("Chats").push().setValue(hashMap);
-        msg.setText("");
+        hashMap.put(getString(R.string.discussionMessage),mesg);
+        databaseReference.child(getString(R.string.discussionChat)).push().setValue(hashMap);
+        msg.setText(getString(R.string.discussionBlank));
     }
     private void checkUserStatus(){
         FirebaseUser user = firebaseAuth.getCurrentUser();

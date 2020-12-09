@@ -39,7 +39,7 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
     //ArrayList<String> classes = new ArrayList<>(R.array.language);
-    String [] classes={"English","French","Vietnamese"};
+    String [] classes={getString(R.string.studentEng),getString(R.string.studentFn),getString(R.string.studentVt)};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +63,7 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(StudentActivity.this, ClassDetail.class);
-                intent.putExtra("lang",listView.getItemAtPosition(position).toString());
+                intent.putExtra(getString(R.string.studentLang),listView.getItemAtPosition(position).toString());
                 //Toast.makeText(HomeActivity.this,"",Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
@@ -75,7 +75,7 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
         menuInflater.inflate(R.menu.menu_search,menu);
         MenuItem menuItem = menu.findItem(R.id.search_view);
         SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setQueryHint("Search");
+        searchView.setQueryHint(getString(R.string.studentSearch));
         // Toast.makeText(getApplicationContext(),"hello",Toast.LENGTH_LONG).show();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:padding="15dp"
         android:layout_gravity="end"
-        android:text="My msg"
+        android:text="@string/showChatMsg"
         android:id="@+id/messageTv"/>
 
 

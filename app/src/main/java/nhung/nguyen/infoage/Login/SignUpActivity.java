@@ -47,19 +47,19 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    mEmail.setError("Invalid Email");
+                    mEmail.setError(getString(R.string.signUpEmailInvalid));
                     mEmail.setFocusable(true);
                 }
                 else if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Email is Required.");
+                    mEmail.setError(getString(R.string.signUpEmptyEmail));
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    mPassword.setError("Password is required");
+                    mPassword.setError(getString(R.string.signUpEmptyPassword));
                     return;
                 }
                 if(password.length()<6){
-                    mPassword.setError("Password must be longer than 6 characters.");
+                    mPassword.setError(getString(R.string.signUpPasswordLen));
                     return;
                 }
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -70,19 +70,19 @@ public class SignUpActivity extends AppCompatActivity {
                             String email = user.getEmail();
                             String uid = user.getUid();
                             HashMap<Object, String> hashMap = new HashMap<>();
-                            hashMap.put("email",email);
-                            hashMap.put("uid", uid);
-                            hashMap.put("name","");
-                            hashMap.put("phone","");
-                            hashMap.put("image","");
+                            hashMap.put(getString(R.string.signInEmail),email);
+                            hashMap.put(getString(R.string.signInUid), uid);
+                            hashMap.put(getString(R.string.signInName),getString(R.string.signInBlank));
+                            hashMap.put(getString(R.string.signInPhone),getString(R.string.signInBlank));
+                            hashMap.put(getString(R.string.signInImage),getString(R.string.signInBlank));
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference reference = database.getReference("Users");
+                            DatabaseReference reference = database.getReference(getString(R.string.signInPath));
                             reference.child(uid).setValue(hashMap);
                             Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                             startActivity(intent);
                             finish();
                         }else{
-                            Toast.makeText(SignUpActivity.this, "Failed to create user",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, getString(R.string.signUpCreationFail),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
