@@ -5,24 +5,15 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
-import nhung.nguyen.infoage.Class.Discussion;
-import nhung.nguyen.infoage.Class.Student;
+import nhung.nguyen.infoage.Class.DiscussionActivity;
 
 public class AdapterUser  extends RecyclerView.Adapter<AdapterUser.MyHolder> {
     Context context;
@@ -54,7 +45,7 @@ public class AdapterUser  extends RecyclerView.Adapter<AdapterUser.MyHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            context.startActivity(new Intent(context, DiscussionActivity.class));
                // getSupportFragmentManager().beginTransaction().replace(R.id.content,new Discussion()).commit();
             }
         });
