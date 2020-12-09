@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#58309E"
+    tools:context=".Login.SignInActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:text="@string/welcomeback"
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/tex12t"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Stay Signed in to your account to make searching easier."
+        android:textSize="19dp" />
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:paddingStart="15dp"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:paddingStart="15dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="@string/rememberMe" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="60dp"
+        android:text="@string/signin"
+        android:background="@drawable/roundedbutton"
+        android:textColor="#fff" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="@string/or" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+        <Button
+            android:id="@+id/gg_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/google"
+            android:background="@drawable/gg"
+            android:textColor="#fff" />
+
+
+<!--        <Button-->
+<!--            android:id="@+id/fb_btn"-->
+<!--            android:layout_width="170dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:textColor="#fff"-->
+<!--            android:text="@string/facebook" />-->
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:text="@string/dont_have_account" />
+        <TextView
+            android:id="@+id/signup_intent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:layout_toRightOf="@+id/textView7"
+            android:text="@string/signup" />
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

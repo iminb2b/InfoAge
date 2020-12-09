@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Home"
+        android:id="@+id/nav_home">
+
+    </item>
+    <item
+        android:id="@+id/classes"
+        android:title="@string/classes"
+        />
+    <item android:title="Student"
+        android:id="@+id/nav_student">
+
+    </item>
+    <item
+        android:id="@+id/carlendar"
+        android:title="@string/calendar"
+        />
+
+    <item
+        android:id="@+id/setting"
+        android:title="@string/setting"
+        />
+</menu>

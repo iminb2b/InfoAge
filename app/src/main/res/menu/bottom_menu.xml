@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_home_white"/>
+    <item android:id="@+id/nav_discuss"
+        android:title="Discuss"
+        android:icon="@drawable/ic_group_white"/>
+    <item android:id="@+id/nav_group"
+        android:title="Student"
+        android:icon="@drawable/ic_group_white"/>
+</menu>

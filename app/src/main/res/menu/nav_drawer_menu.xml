@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/homeItem"
+        android:title="@string/HomeDrawerString"
+
+        />
+    <item
+        android:id="@+id/teacherItem"
+        android:title="@string/TeacherDrawerString"
+        />
+    <item
+        android:id="@+id/studentItem"
+        android:title="@string/StudentDrawerString"
+        />
+
+    <item
+        android:id="@+id/forumItem"
+        android:title="@string/ForumsDrawerString"
+        />
+
+    <item
+        android:id="@+id/helpAndSupportItem"
+        android:title="@string/HelpAndSupportDrawerString"
+        />
+    <item
+        android:id="@+id/setting"
+        android:title="Setting"
+        />
+</menu>

@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">InfoAge</string>
+
+    //For the tabs
+    <string name="HomeTabString">Home</string>
+    <string name="TeachersTabString">Teachers</string>
+    <string name="StudentsTabString">Students</string>
+    <string name="ForumsTabString">Forums</string>
+
+
+    <string name="navigation_drawer_open" translatable="false">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
+    <!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
+    //For the Drawers
+    <string name="HomeDrawerString">Home</string>
+    <string name="TeacherDrawerString">Teachers</string>
+    <string name="StudentDrawerString">Students</string>
+    <string name="ForumsDrawerString">Forums</string>
+    <string name="HelpAndSupportDrawerString">Help And Support</string>
+    <string name="message">Messages</string>
+    <string name="level">Level</string>
+    <string name="classes">Classes</string>
+    <string name="myStatistics">My Statistics</string>
+    <string name="setting">Settings</string>
+    <string name="calendar">Calendar</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="or">Or</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="rememberMe">Remember Me</string>
+    <string name="forgot_password">Forget Password?</string>
+    <string name="dont_have_account">Do not have account?</string>
+    <string name="msg1">Stay signed in with your  account to make search easier.</string>
+    <string name="welcomeback">Welcome back!</string>
+    <string name="email">Email</string>
+    <string name="retype_password">Retype your password</string>
+    <string name="msg2"></string>
+    <string name="accept">Accept</string>
+    <string name="term_of_service">Term of Service</string>
+    <string name="humber">Humber college</string>
+    <string name="introduce">Introduce to Android Programming</string>
+    <!--    //Lost Connection-->
+    <string name="lostConnection">Lost Connection</string>
+    <string name="lostConnectionBlurb">It seems like you have lost  internet connection</string>
+
+    <!--    //Error 404-->
+    <string name="notFound">Page not Found</string>
+    <string name="notFoundBlurb">It seems like the page you are  looking for is no longer.</string>
+    <string name="notFound404">404</string>
+    <string-array name="addr">
+        <item>humber college</item>
+        <item>humber college</item>
+        <item>humber college</item>
+        <item>humber college</item>
+    </string-array>
+    <string-array name="price">
+        <item>humber college</item>
+        <item>humber college</item>
+        <item>humber college</item>
+        <item>humber college</item>
+    </string-array>
+    <string-array name="language">
+        <item>English</item>
+        <item>French</item>
+        <item>Vietnamese</item>
+    </string-array>
+    <string-array name="day_in_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string-array name="time">
+
+    </string-array>
+</resources>
