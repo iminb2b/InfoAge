@@ -5,36 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#58309E"
+    android:padding="20dp"
     tools:context=".Student.ApplyClass">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/class_name"
         android:textSize="24dp"
+        android:textColor="#fff"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_gravity="center"
         android:textAlignment="center"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/class_ins"
         android:textSize="15dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="#fff"
+        android:layout_marginTop="20dp"
         android:layout_gravity="end"
         android:textAlignment="textEnd"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/class_lang"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:textSize="24dp"
+        android:textColor="#fff"
         android:layout_gravity="start"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:id="@+id/class_des"
         android:textSize="24dp"
+        android:textColor="#fff"
+
         android:layout_gravity="start"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="60dp"
         android:layout_gravity="center"
         android:id="@+id/aplly"
         android:text="@string/apply"/>

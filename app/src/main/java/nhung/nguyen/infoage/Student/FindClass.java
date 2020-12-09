@@ -77,8 +77,8 @@ public class FindClass extends Fragment {
         adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.language));
 
         listView.setAdapter(adapter);
-        toolbar=view.findViewById(R.id.toolbar);
-        onCreateOptionsMenu(toolbar.getMenu());
+        //toolbar=view.findViewById(R.id.toolbar);
+        //onCreateOptionsMenu(toolbar.getMenu());
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -90,24 +90,24 @@ public class FindClass extends Fragment {
         return view;
     }
 
-    public void onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getActivity().getMenuInflater();
-        menuInflater.inflate(R.menu.menu_search,menu);
-        MenuItem menuItem = menu.findItem(R.id.search_view);
-        SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setQueryHint(getString(R.string.studentSearch));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-
-    }
+//    public void onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater = getActivity().getMenuInflater();
+//        menuInflater.inflate(R.menu.menu_search,menu);
+//        MenuItem menuItem = menu.findItem(R.id.search_view);
+//        SearchView searchView = (SearchView)menuItem.getActionView();
+//        searchView.setQueryHint(getString(R.string.studentSearch));
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                adapter.getFilter().filter(newText);
+//                return true;
+//            }
+//        });
+//
+//    }
 }
