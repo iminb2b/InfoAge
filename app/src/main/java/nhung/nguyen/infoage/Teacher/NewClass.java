@@ -17,9 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-
-import nhung.nguyen.infoage.ClassInfo;
+import nhung.nguyen.infoage.Adapter.ClassInfo;
 import nhung.nguyen.infoage.R;
 
 public class NewClass extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

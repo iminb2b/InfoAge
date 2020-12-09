@@ -83,6 +83,7 @@
     <string-array name="time">
 
     </string-array>
+    <string name="postTitle">Post:</string>
     <string name="apply">Apply</string>
     <!-- Class Strings-->
     <string name="discussionPath">Users</string>

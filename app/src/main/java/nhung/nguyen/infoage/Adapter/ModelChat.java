@@ -1,4 +1,4 @@
-package nhung.nguyen.infoage;
+package nhung.nguyen.infoage.Adapter;
 
 public class ModelChat {
     String message,sender, receiver;

@@ -3,6 +3,7 @@ package nhung.nguyen.infoage.Class;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,6 +19,13 @@ public class ClassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_class);
         BottomNavigationView navigationView= findViewById(R.id.bottom_menu);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
+        String classid = getIntent().getStringExtra("classid");
+        SharedPreferences sharedPreferences = getSharedPreferences("Class",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("classid",classid);
+        editor.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content,new Dashboard()).commit();
+
     }
     private BottomNavigationView.OnNavigationItemSelectedListener selectedListener=
             new BottomNavigationView.OnNavigationItemSelectedListener() {

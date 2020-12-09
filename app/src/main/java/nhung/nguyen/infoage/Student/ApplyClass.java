@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import nhung.nguyen.infoage.ClassInfo;
+import nhung.nguyen.infoage.Adapter.ClassInfo;
 import nhung.nguyen.infoage.R;
 
 public class ApplyClass extends AppCompatActivity {
@@ -73,7 +73,7 @@ public class ApplyClass extends AppCompatActivity {
                 myRef.child(classid).setValue(classInfo);
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
                 DatabaseReference ref = db.getReference("Classes");
-                ref.child(classid).setValue(uid);
+                ref.child(classid).child(uid).setValue(uid);
                 startActivity(new Intent(ApplyClass.this, StudentActivity.class));
             }
         });

@@ -76,6 +76,7 @@ public class AppliedClass extends Fragment {
     ListView listView;
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
+    ArrayList<String> classid=new ArrayList<>();
     ArrayList<String> classes = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,11 +93,10 @@ public class AppliedClass extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 classes.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    StringBuilder sb= new StringBuilder();
-                    for(DataSnapshot dat: dataSnapshot.getChildren()){
-                        sb.append(dat.getKey()+":  "+dat.getValue().toString()+"\n");
-                    }
-                    classes.add(sb.toString());
+                    String sb;
+                    sb = dataSnapshot.child("className").getValue().toString();
+                    classid.add(dataSnapshot.child("classid").getValue().toString());
+                    classes.add(sb);
 
                 }
                 adapter.notifyDataSetChanged();
@@ -114,7 +114,7 @@ public class AppliedClass extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), ClassActivity.class);
-                //intent.putExtra("language",lang);
+                intent.putExtra("classid", classid.get(position));
                 startActivity(intent);
             }
         });

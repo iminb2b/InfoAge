@@ -1,4 +1,4 @@
-package nhung.nguyen.infoage;
+package nhung.nguyen.infoage.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import nhung.nguyen.infoage.Class.DiscussionActivity;
+import nhung.nguyen.infoage.R;
 
 public class AdapterUser  extends RecyclerView.Adapter<AdapterUser.MyHolder> {
     Context context;

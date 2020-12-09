@@ -23,8 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import nhung.nguyen.infoage.AdapterUser;
-import nhung.nguyen.infoage.ModelUser;
+import nhung.nguyen.infoage.Adapter.AdapterUser;
+import nhung.nguyen.infoage.Adapter.ModelUser;
 import nhung.nguyen.infoage.R;
 
 /**
@@ -73,10 +73,14 @@ public class Student extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     RecyclerView recyclerView;
     AdapterUser adapterUser;
     List<ModelUser> userList;
+    ArrayList<String> std;
+    String[] st;
     TextView check;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -114,13 +118,16 @@ public class Student extends Fragment {
 
             }
         });
-        adapterUser = new AdapterUser(getActivity(), userList);
-        recyclerView.setAdapter(adapterUser);
+//        adapterUser = new AdapterUser(getActivity(), userList);
+//        recyclerView.setAdapter(adapterUser);
         return view;
     }
 
     private void getAllUser() {
 
     }
+
+
+
 
 }

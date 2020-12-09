@@ -1,4 +1,4 @@
-package nhung.nguyen.infoage;
+package nhung.nguyen.infoage.Adapter;
 
 public class ModelUser {
     public String name, email, phone, image, uid;

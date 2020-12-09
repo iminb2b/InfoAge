@@ -1,4 +1,4 @@
-package nhung.nguyen.infoage;
+package nhung.nguyen.infoage.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import nhung.nguyen.infoage.R;
 
 public class AdapterChat  extends RecyclerView.Adapter<AdapterChat.MyHolder> {
     Context context;

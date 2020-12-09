@@ -52,40 +52,22 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.homeItem);
-        listView= (ListView)findViewById(R.id.list_view);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.language));
-        listView.setAdapter(adapter);
-        onCreateOptionsMenu(toolbar.getMenu());
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(StudentActivity.this, ClassDetail.class);
-                intent.putExtra("lang",listView.getItemAtPosition(position).toString());
-                startActivity(intent);
-            }
-        });
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_search,menu);
-        MenuItem menuItem = menu.findItem(R.id.search_view);
-        SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setQueryHint(getString(R.string.studentSearch));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+       // listView= (ListView)findViewById(R.id.list_view);
+      //  adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.language));
+      //  listView.setAdapter(adapter);
+//        onCreateOptionsMenu(toolbar.getMenu());
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(StudentActivity.this, ClassDetail.class);
+//                intent.putExtra("lang",listView.getItemAtPosition(position).toString());
+//                startActivity(intent);
+//            }
+//        });
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FindClass()).commit();
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
@@ -99,6 +81,8 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.find_class:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FindClass()).commit();
+
                 break;
             case R.id.setting:
                 Intent intent3 = new Intent(getApplicationContext(), SettingActivity.class);
