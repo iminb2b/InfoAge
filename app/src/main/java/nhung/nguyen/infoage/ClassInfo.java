@@ -5,11 +5,21 @@ public class ClassInfo {
     String description;
     String instructor;
     String language;
-    public ClassInfo(String name, String des, String ins, String lang){
+    String classid;
+    public ClassInfo(String name, String des, String ins, String lang, String classid){
         this.className=name;
         this.description= des;
         this.instructor= ins;
         this.language=lang;
+        this.classid=classid;
+    }
+
+    public String getClassid() {
+        return classid;
+    }
+
+    public void setClassid(String classid) {
+        this.classid = classid;
     }
 
     public String getLanguage() {

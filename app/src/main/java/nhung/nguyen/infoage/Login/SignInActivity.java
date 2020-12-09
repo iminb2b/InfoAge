@@ -111,6 +111,8 @@ public class SignInActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
+                            Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                            startActivity(intent);
                             Toast.makeText(SignInActivity.this, getString(R.string.signInAuthFail),
                                     Toast.LENGTH_SHORT).show();
                         }

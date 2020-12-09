@@ -34,12 +34,9 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    ProgressBar progressBar1, progressBar2;
     ListView listView;
-    AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
-    //ArrayList<String> classes = new ArrayList<>(R.array.language);
-    String [] classes={getString(R.string.studentEng),getString(R.string.studentFn),getString(R.string.studentVt)};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +60,7 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(StudentActivity.this, ClassDetail.class);
-                intent.putExtra(getString(R.string.studentLang),listView.getItemAtPosition(position).toString());
-                //Toast.makeText(HomeActivity.this,"",Toast.LENGTH_LONG).show();
+                intent.putExtra("lang",listView.getItemAtPosition(position).toString());
                 startActivity(intent);
             }
         });
@@ -76,7 +72,6 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
         MenuItem menuItem = menu.findItem(R.id.search_view);
         SearchView searchView = (SearchView)menuItem.getActionView();
         searchView.setQueryHint(getString(R.string.studentSearch));
-        // Toast.makeText(getApplicationContext(),"hello",Toast.LENGTH_LONG).show();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -110,7 +105,7 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
                 startActivity(intent3);
                 break;
             case R.id.classes:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AppliedClass()).commit();
                 break;
             case R.id.carlendar:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();

@@ -49,29 +49,21 @@ public class NewClass extends AppCompatActivity implements AdapterView.OnItemSel
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                String uid = user.getUid();
                 String name = class_name.getText().toString();
                 String ins = class_ins.getText().toString();
                 String des = class_des.getText().toString();
-
-                ClassInfo classInfo= new ClassInfo(name,des,ins,lang);
+                String classid = uid+lang+(int)(Math.random()*1000+0);
+                ClassInfo classInfo= new ClassInfo(name,des,ins,lang,classid);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference(lang);
-                myRef.child("class"+count).setValue(classInfo);
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                String uid = user.getUid();
+                myRef.child(classid).setValue(classInfo);
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
-                DatabaseReference ref = db.getReference(uid);
-                ref.child(name).setValue(classInfo);
-                sharedPreferences = getSharedPreferences("Instructor",MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("Ins",uid);
-                editor.commit();
-
-
+                DatabaseReference ref = db.getReference("Teacher").child(uid);
+                ref.child(classid).setValue(classInfo);
 
                 Intent intent = new Intent(NewClass.this, TeacherActivity.class);
-                 intent.putExtra("created",true);
-
                 startActivity(intent);
             }
         });

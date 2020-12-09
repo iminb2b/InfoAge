@@ -41,7 +41,7 @@ public class DiscussionActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         userDbref= firebaseDatabase.getReference(getString(R.string.discussionPath));
-        msg= view.findViewById(R.id.messageEt);
+        msg= findViewById(R.id.messageEt);
         Query userQuery = userDbref.orderByChild(getString(R.string.discussionUid)).equalTo(myUid);
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override

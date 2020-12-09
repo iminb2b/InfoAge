@@ -44,7 +44,8 @@ public class ClassDetail extends AppCompatActivity  implements NavigationView.On
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
     ArrayList<String> classes = new ArrayList<>();
-
+    ArrayList<String> classid = new ArrayList<>();
+    String cid, pos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,17 +61,18 @@ public class ClassDetail extends AppCompatActivity  implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.homeItem);
-        //String pos =getIntent().getStringExtra("lang");
-        //String lang;
+        pos =getIntent().getStringExtra("lang");
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(getString(R.string.studentEng));
+        DatabaseReference myRef = database.getReference(pos);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 classes.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    classes.add(dataSnapshot.getValue().toString());
+                   classes.add(dataSnapshot.child("className").getValue().toString());
+                   classid.add(dataSnapshot.child("classid").getValue().toString());
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -88,6 +90,8 @@ public class ClassDetail extends AppCompatActivity  implements NavigationView.On
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ClassDetail.this, ApplyClass.class);
+                intent.putExtra("classid",classid.get(position));
+                intent.putExtra("lang",pos);
                 startActivity(intent);
             }
         });

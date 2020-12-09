@@ -83,7 +83,7 @@
     <string-array name="time">
 
     </string-array>
-
+    <string name="apply">Apply</string>
     <!-- Class Strings-->
     <string name="discussionPath">Users</string>
     <string name="discussionUid">uid</string>
@@ -125,6 +125,7 @@
 
     <!-- Main Activity Strings -->
     <!-- Home Activity -->
+    <string name="homeActivitySlogan">Never stop seeking knowledge</string>
     <string name="homeActivityEng">English</string>
     <string name="homeActivityFn">French</string>
     <string name="homeActivityVt">Vietnamese</string>
@@ -198,7 +199,6 @@
     <!-- Teacher Menu -->
     <string name="teacherMenuHome">Home</string>
     <string name="teacherMenuStudent">Student</string>
-
 
 
 </resources>

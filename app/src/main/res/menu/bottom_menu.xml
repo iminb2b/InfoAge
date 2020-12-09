@@ -4,10 +4,7 @@
         android:title="@string/bottomMenuDashboard"
         android:icon="@drawable/ic_home_white"/>
 
-    <item android:id="@+id/nav_discuss"
-        android:title="@string/bottomMenuDiscuss"
-        android:icon="@drawable/ic_group_white"/>
-    
+
     <item android:id="@+id/nav_group"
         android:title="@string/bottomMenuStudent"
         android:icon="@drawable/ic_group_white"/>

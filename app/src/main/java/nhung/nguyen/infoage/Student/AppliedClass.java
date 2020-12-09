@@ -1,12 +1,9 @@
-package nhung.nguyen.infoage.Teacher;
+package nhung.nguyen.infoage.Student;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -32,10 +29,10 @@ import nhung.nguyen.infoage.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ClassFragment#newInstance} factory method to
+ * Use the {@link AppliedClass#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ClassFragment extends Fragment {
+public class AppliedClass extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,7 +43,7 @@ public class ClassFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ClassFragment() {
+    public AppliedClass() {
         // Required empty public constructor
     }
 
@@ -56,11 +53,11 @@ public class ClassFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ClassFragment.
+     * @return A new instance of fragment AppliedClass.
      */
     // TODO: Rename and change types and number of parameters
-    public static ClassFragment newInstance(String param1, String param2) {
-        ClassFragment fragment = new ClassFragment();
+    public static AppliedClass newInstance(String param1, String param2) {
+        AppliedClass fragment = new AppliedClass();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -76,23 +73,20 @@ public class ClassFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    Toolbar toolbar;
     ListView listView;
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
     ArrayList<String> classes = new ArrayList<>();
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_class, container, false);
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         String name = user.getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         assert name != null;
-        DatabaseReference myRef = database.getReference("Teacher").child(name);
+        DatabaseReference myRef = database.getReference("Student").child(name);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -30,12 +30,7 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    ListView listView;
-    AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
-    //ArrayList<String> classes = new ArrayList<>(R.array.language);
-    String [] classes={getString(R.string.homeActivityEng),getString(R.string.homeActivityFn),getString(R.string.homeActivityVt)};
-    //String [] classes={getString(R.string.homeActivityLang)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,32 +48,10 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.homeItem);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
+       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_search,menu);
-        MenuItem menuItem = menu.findItem(R.id.search_view);
-        SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setQueryHint(getString(R.string.homeActivitySearch));
-       // Toast.makeText(getApplicationContext(),"hello",Toast.LENGTH_LONG).show();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
-    }
 
     @Override
     public void onBackPressed(){
