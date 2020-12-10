@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="176dp"
     android:gravity="bottom"
-    android:background="#58309E"
+    android:background="@drawable/bg_header"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:padding="16dp">
     <ImageView

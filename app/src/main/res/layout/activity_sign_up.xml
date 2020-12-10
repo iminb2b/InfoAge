@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#58309E"
+    android:background="@drawable/bg"
     tools:context=".Login.SignUpActivity">
 
     <LinearLayout
@@ -14,26 +14,16 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="235dp"
+            android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingStart="15dp"
             android:layout_marginTop="60dp"
-            android:text="@string/welcomeback"
+            android:paddingStart="15dp"
+            android:text="Welcome to InfoAge"
             android:textColor="#fff"
             android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/tex12t"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingStart="15dp"
-            android:padding="10dp"
-            android:text="@string/signInStay"
-            android:textColor="#fff"
-            android:textSize="19sp" />
+
 
         <EditText
             android:id="@+id/fullname"

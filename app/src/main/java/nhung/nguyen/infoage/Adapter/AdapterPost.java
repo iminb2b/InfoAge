@@ -39,7 +39,7 @@ public class AdapterPost  extends RecyclerView.Adapter<AdapterPost.MyHolder> {
         String title = postList.get(position).getTitle();
         String author = postList.get(position).getAuthor();
         final String postid = postList.get(position).getPostid();
-        holder.pTitle.setText(title);
+        holder.pTitle.setText("Title: "+title);
         holder.pAuthor.setText(author);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

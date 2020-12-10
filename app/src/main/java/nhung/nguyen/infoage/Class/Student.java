@@ -94,10 +94,10 @@ public class Student extends Fragment {
         userList = new ArrayList<>();
 
         final FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-        if(fUser!= null){
-           // Glide.with(this).load(fUser.getPhotoUrl()).into(avatarIv);
-            username = fUser.getDisplayName();
-        }
+//        if(fUser!= null){
+//           // Glide.with(this).load(fUser.getPhotoUrl()).into(avatarIv);
+//            username = fUser.getDisplayName();
+//        }
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(getString(R.string.discussionPath));
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -106,10 +106,10 @@ public class Student extends Fragment {
                 for (DataSnapshot ds : snapshot.getChildren()){
                     String email = ds.child(getString(R.string.discussionEmail)).getValue().toString();
                     String image = ds.child(getString(R.string.discussionImage)).getValue().toString();
-
+                    String name = ds.child("name").getValue().toString();
                     String phone = ds.child(getString(R.string.discussionPhone)).getValue().toString();
                     String uid = ds.child(getString(R.string.discussionUid)).getValue().toString();
-                    ModelUser modelUser= new ModelUser(email, image, username, phone, uid);
+                    ModelUser modelUser= new ModelUser(email, image, name, phone, uid);
                     userList.add(modelUser);
                     adapterUser = new AdapterUser(getActivity(), userList);
                     recyclerView.setAdapter(adapterUser);

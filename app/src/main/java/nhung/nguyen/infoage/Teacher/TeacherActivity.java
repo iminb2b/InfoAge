@@ -13,10 +13,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import nhung.nguyen.infoage.MainActivity.HomeActivity;
 import nhung.nguyen.infoage.MainActivity.ProfileFragment;
@@ -30,7 +37,12 @@ public class TeacherActivity extends AppCompatActivity  implements NavigationVie
     NavigationView navigationView;
     Toolbar toolbar;
     ProgressBar pg1, pg2;
-
+    ImageView avatarIv;
+    TextView nameTv, emailTv, phoneTv;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +51,23 @@ public class TeacherActivity extends AppCompatActivity  implements NavigationVie
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
         navigationView.bringToFront();
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         ActionBarDrawerToggle toggle = new
                 ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.homeItem);
+        View headerview = navigationView.getHeaderView(0);
+        avatarIv= headerview.findViewById(R.id.avatarIv);
+        nameTv= headerview.findViewById(R.id.nameTv);
+        emailTv= headerview.findViewById(R.id.emailTv);
+        if(user!= null){
+            Glide.with(this).load(user.getPhotoUrl()).into(avatarIv);
+            nameTv.setText(user.getDisplayName());
+            emailTv.setText(user.getEmail());
+        }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ClassFragment()).commit();
 
         FloatingActionButton fab = findViewById(R.id.fab_btn);

@@ -5,6 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".Teacher.TeacherActivity"
     tools:openDrawer="start">
 
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="16dp"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="#fff"
                 android:elevation="6dp"
                 android:src="@drawable/ic_baseline_add_24" />
         </FrameLayout>

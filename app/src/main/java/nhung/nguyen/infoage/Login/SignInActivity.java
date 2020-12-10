@@ -175,7 +175,7 @@ public class SignInActivity extends AppCompatActivity {
                                     HashMap<Object, String> hashMap = new HashMap<>();
                                     hashMap.put(getString(R.string.signInEmail),email);
                                     hashMap.put(getString(R.string.signInUid), uid);
-                                    hashMap.put(getString(R.string.signInName),getString(R.string.signInBlank));
+                                    hashMap.put(getString(R.string.signInName),user.getDisplayName());
                                     hashMap.put(getString(R.string.signInPhone),getString(R.string.signInBlank));
                                     hashMap.put(getString(R.string.signInImage),getString(R.string.signInBlank));
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();

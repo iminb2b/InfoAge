@@ -6,11 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Student.ClassDetail"
+    android:background="@drawable/bg"
     tools:openDrawer="start">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
@@ -27,10 +29,12 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/list_view"
-                android:dividerHeight="2dp"
-                android:divider="@android:color/white"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#fff"
+                android:dividerHeight="10dp"
+                android:divider="#8D66D1"
                 tools:listitem="@android:layout/simple_list_item_1"/>
         </FrameLayout>
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".Teacher.ClassFragment">
 
 
@@ -16,10 +17,12 @@
 
                 <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/list_view"
-                    android:dividerHeight="2dp"
-                    android:divider="@android:color/white"
+                    android:layout_margin="10dp"
+                    android:background="#fff"
+                    android:dividerHeight="10dp"
+                    android:divider="#8D66D1"
                     tools:listitem="@android:layout/simple_list_item_1"/>
 
 

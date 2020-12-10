@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".Class.Dashboard">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="#FFFFFF"
         android:elevation="6dp"
         android:src="@drawable/ic_baseline_add_24" />
 </FrameLayout>

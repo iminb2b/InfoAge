@@ -17,11 +17,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import nhung.nguyen.infoage.Login.SettingActivity;
 import nhung.nguyen.infoage.MainActivity.HomeActivity;
@@ -36,7 +43,12 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
     Toolbar toolbar;
     ListView listView;
     ArrayAdapter<String> adapter;
-
+    ImageView avatarIv;
+    TextView nameTv, emailTv, phoneTv;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +56,8 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
         drawerLayout=findViewById(R.id.drawerLayout);
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle=new
                 ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -52,6 +65,15 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.homeItem);
+        View headerview = navigationView.getHeaderView(0);
+        avatarIv= headerview.findViewById(R.id.avatarIv);
+        nameTv= headerview.findViewById(R.id.nameTv);
+        emailTv= headerview.findViewById(R.id.emailTv);
+        if(user!= null){
+            Glide.with(this).load(user.getPhotoUrl()).into(avatarIv);
+            nameTv.setText(user.getDisplayName());
+            emailTv.setText(user.getEmail());
+        }
        // listView= (ListView)findViewById(R.id.list_view);
       //  adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.language));
       //  listView.setAdapter(adapter);
