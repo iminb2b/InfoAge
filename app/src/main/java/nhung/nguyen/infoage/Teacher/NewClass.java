@@ -22,7 +22,7 @@ import nhung.nguyen.infoage.R;
 
 public class NewClass extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     int count=0;
-    String lang="English";
+    String lang="English", myUid;
     SharedPreferences sharedPreferences;
     FirebaseAuth firebaseAuth;
     @Override
@@ -44,13 +44,15 @@ public class NewClass extends AppCompatActivity implements AdapterView.OnItemSel
         sp_laguage.setOnItemSelectedListener(this);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        myUid = user.getUid();
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 String uid = user.getUid();
                 String name = class_name.getText().toString();
-                String ins = class_ins.getText().toString();
+                String ins = myUid;
                 String des = class_des.getText().toString();
                 String classid = uid+lang+(int)(Math.random()*1000+0);
                 ClassInfo classInfo= new ClassInfo(name,des,ins,lang,classid);

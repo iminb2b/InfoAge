@@ -37,7 +37,7 @@ public class AdapterUser  extends RecyclerView.Adapter<AdapterUser.MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        String userImage = userList.get(position).email;
+        final String hisUid = userList.get(position).uid;
         String userName = userList.get(position).name;
         String userEmail = userList.get(position).email;
         holder.mNameTv.setText(userName);
@@ -46,7 +46,9 @@ public class AdapterUser  extends RecyclerView.Adapter<AdapterUser.MyHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            context.startActivity(new Intent(context, DiscussionActivity.class));
+                Intent intent = new Intent(context, DiscussionActivity.class);
+                intent.putExtra("hisUid",hisUid);
+                context.startActivity(intent);
                // getSupportFragmentManager().beginTransaction().replace(R.id.content,new Discussion()).commit();
             }
         });

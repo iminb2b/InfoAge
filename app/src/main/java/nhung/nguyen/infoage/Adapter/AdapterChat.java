@@ -12,23 +12,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.List;
+
 import nhung.nguyen.infoage.R;
 
 public class AdapterChat  extends RecyclerView.Adapter<AdapterChat.MyHolder> {
     Context context;
-    String message;
+    List<ModelChat> chatList;
     int SHOW_LEFT = 0;
     int SHOW_RIGHT = 1;
 
-    public AdapterChat(Context context, String message) {
+    public AdapterChat(Context context, List<ModelChat> chatList) {
         this.context = context;
-        this.message = message;
+        this.chatList = chatList;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
+       // LayoutInflater inflater= LayoutInflater.from(context);
+        //v= inflater.inflate(R.layout.show_chat_left,parent, false);
         if(viewType==SHOW_LEFT){
             LayoutInflater inflater= LayoutInflater.from(context);
             v= inflater.inflate(R.layout.show_chat_left,parent, false);
@@ -46,12 +50,16 @@ public class AdapterChat  extends RecyclerView.Adapter<AdapterChat.MyHolder> {
     @Override
     public int getItemViewType(int position) {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        return super.getItemViewType(position);
+        if(chatList.get(position).getSender().equals(fUser.getUid())){
+            return  SHOW_RIGHT;
+        }else{
+            return  SHOW_LEFT;
+        }
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+        String message = chatList.get(position).getMessage();
 
         holder.message.setText(message);
 
@@ -59,7 +67,7 @@ public class AdapterChat  extends RecyclerView.Adapter<AdapterChat.MyHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return chatList.size();
     }
 
     class  MyHolder extends RecyclerView.ViewHolder{
@@ -68,7 +76,7 @@ public class AdapterChat  extends RecyclerView.Adapter<AdapterChat.MyHolder> {
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
-            message = itemView.findViewById(R.id.messageEt);
+            message = itemView.findViewById(R.id.messageTv);
         }
 
     }

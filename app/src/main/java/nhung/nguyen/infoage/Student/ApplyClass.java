@@ -18,15 +18,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import nhung.nguyen.infoage.Adapter.ClassInfo;
+import nhung.nguyen.infoage.Class.DiscussionActivity;
 import nhung.nguyen.infoage.R;
 
 public class ApplyClass extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     String lang, classid;
     TextView name, ins, des, language;
-    Button aplly;
+    Button aplly, talk;
     FirebaseUser user;
     ClassInfo classInfo;
+    String insid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class ApplyClass extends AppCompatActivity {
         des = findViewById(R.id.class_des);
         language = findViewById(R.id.class_lang);
         aplly = findViewById(R.id.aplly);
+        talk = findViewById(R.id.talk);
         firebaseAuth = FirebaseAuth.getInstance();
         lang = getIntent().getStringExtra("lang");
         classid = getIntent().getStringExtra("classid");
@@ -48,14 +51,14 @@ public class ApplyClass extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String nam = snapshot.child("className").getValue().toString();
-                String instructor = snapshot.child("instructor").getValue().toString();
+                insid = snapshot.child("instructor").getValue().toString();
                 String lan = snapshot.child("language").getValue().toString();
                 String de = snapshot.child("description").getValue().toString();
                 name.setText(nam);
-                ins.setText(instructor);
+                //ins.setText(instructor);
                 language.setText(lan);
                 des.setText(de);
-                classInfo= new ClassInfo(nam,de,instructor,lan,classid);
+                classInfo= new ClassInfo(nam,de,insid,lan,classid);
 
             }
 
@@ -75,6 +78,14 @@ public class ApplyClass extends AppCompatActivity {
                 DatabaseReference ref = db.getReference("Classes");
                 ref.child(classid).child(uid).setValue(uid);
                 startActivity(new Intent(ApplyClass.this, StudentActivity.class));
+            }
+        });
+        talk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ApplyClass.this, DiscussionActivity.class);
+                intent.putExtra("hisUid", insid);
+                startActivity(intent);
             }
         });
     }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -84,10 +85,15 @@ public class ProfileFragment extends Fragment {
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference(getString(R.string.profilePath));
+
         avatarIv= view.findViewById(R.id.avatarIv);
         nameTv= view.findViewById(R.id.nameTv);
         emailTv= view.findViewById(R.id.emailTv);
         phoneTv= view.findViewById(R.id.phoneTv);
+        if(user!= null){
+            Glide.with(this).load(user.getPhotoUrl()).into(avatarIv);
+            nameTv.setText(user.getDisplayName());
+        }
         Query query =databaseReference.orderByChild(getString(R.string.profileEmail)).equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -98,14 +104,10 @@ public class ProfileFragment extends Fragment {
                     String phone=""+ds.child(getString(R.string.profilePhone)).getValue();
                     String image=""+ds.child(getString(R.string.profileImage)).getValue();
 
-                    nameTv.setText(name);
+                    //nameTv.setText(name);
                     emailTv.setText(email);
                     phoneTv.setText(phone);
-                    try {
-                        Picasso.get().load(image).into(avatarIv);
-                    }catch (Exception e){
-                        Picasso.get().load(R.drawable.ic_add_image).into(avatarIv);
-                    }
+
                 }
             }
 

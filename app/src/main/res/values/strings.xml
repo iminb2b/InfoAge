@@ -83,6 +83,9 @@
     <string-array name="time">
 
     </string-array>
+    <string name="defa">Default</string>
+    <string name="green">Green</string>
+    <string name="red">Red</string>
     <string name="postTitle">Post:</string>
     <string name="apply">Apply</string>
     <!-- Class Strings-->

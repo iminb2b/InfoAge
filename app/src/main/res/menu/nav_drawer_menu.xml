@@ -17,11 +17,6 @@
         />
 
     <item
-        android:id="@+id/forumItem"
-        android:title="@string/ForumsDrawerString"
-        />
-
-    <item
         android:id="@+id/helpAndSupportItem"
         android:title="@string/HelpAndSupportDrawerString"
         />
