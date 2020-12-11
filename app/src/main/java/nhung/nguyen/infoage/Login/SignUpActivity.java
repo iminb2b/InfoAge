@@ -85,7 +85,7 @@ public class SignUpActivity extends AppCompatActivity {
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference reference = database.getReference(getString(R.string.signInPath));
                             reference.child(uid).setValue(hashMap);
-                            Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, ChoiceActivity.class);
                             startActivity(intent);
                             finish();
                         }else{

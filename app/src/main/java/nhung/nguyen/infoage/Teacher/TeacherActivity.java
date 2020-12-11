@@ -103,16 +103,12 @@ public class TeacherActivity extends AppCompatActivity  implements NavigationVie
                 startActivity(intent2);
                 break;
 
-            case R.id.carlendar:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
-                break;
+
             case R.id.nav_home:
                 Intent intent4 = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent4);
                 break;
-            case R.id.nav_student:
-                Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
-                startActivity(intent);
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

@@ -11,25 +11,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Class.PostActivity"></activity>
-        <activity android:name=".Class.NewPost" />
-        <activity android:name=".Class.DiscussionActivity" />
-        <activity android:name=".Class.ClassActivity" />
-        <activity android:name=".Student.ApplyClass" />
+        <activity android:name=".Login.ChoiceActivity"
+            android:parentActivityName=".Login.SignInActivity"></activity>
+        <activity android:name=".Class.PostActivity"
+            android:parentActivityName=".Class.ClassActivity"/>
+        <activity android:name=".Class.NewPost"
+            android:parentActivityName=".Class.ClassActivity"/>
+        <activity android:name=".Class.DiscussionActivity"
+            android:parentActivityName=".Class.ClassActivity"/>
+        <activity android:name=".Class.ClassActivity"
+            android:parentActivityName=".MainActivity.HomeActivity"/>
+        <activity android:name=".Student.ApplyClass"
+            android:parentActivityName=".Student.ApplyClass"/>
         <activity
             android:name=".Student.ClassDetail"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Teacher.NewClass" />
-        <activity android:name=".HelpAndSupportActivity" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".Teacher.TeacherActivity"/>
+        <activity android:name=".Teacher.NewClass"
+            android:parentActivityName=".Teacher.TeacherActivity"/>
+        <activity android:name=".HelpAndSupportActivity"
+            android:parentActivityName=".MainActivity.HomeActivity"/>
         <activity
             android:name=".Login.SettingActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity.HomeActivity"/>
         <activity
             android:name=".Student.StudentActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity.HomeActivity"/>
         <activity
             android:name=".Teacher.TeacherActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity.HomeActivity"/>
         <activity
             android:name=".MainActivity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -38,9 +51,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login.SignInActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MainActivity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,6 +58,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

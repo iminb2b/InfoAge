@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +42,8 @@ import nhung.nguyen.infoage.MainActivity.HomeActivity;
 public class SignInActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor ;
-    Button ggSignIn,btnSignIn;
+    Button btnSignIn;
+    ImageButton ggSignIn;
     GoogleSignInClient googleSignInClient;
     FirebaseAuth firebaseAuth;
     TextView signup;
@@ -112,6 +116,42 @@ public class SignInActivity extends AppCompatActivity {
 //
 //        }
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Check if user is signed in (non-null) and update UI accordingly.
+        SharedPreferences sharedPreferences = getSharedPreferences("Remember", MODE_PRIVATE);
+        Boolean check = sharedPreferences.getBoolean("remember", false);
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+        if (check == true) {
+            if (currentUser != null) {
+
+                startActivity(new Intent(SignInActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(SignInActivity.this);
+        alert.setTitle("");
+        alert.setMessage("Do you want to exit?" );
+        alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alert.create().show();
+    }
 
     private void loginUser(String email, String pw) {
         firebaseAuth.signInWithEmailAndPassword(email, pw)
@@ -169,6 +209,8 @@ public class SignInActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    if(task.getResult().getAdditionalUserInfo().isNewUser()){
+
                                     FirebaseUser user = firebaseAuth.getCurrentUser();
                                     String email = user.getEmail();
                                     String uid = user.getUid();
@@ -181,8 +223,16 @@ public class SignInActivity extends AppCompatActivity {
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference reference = database.getReference(getString(R.string.signInPath));
                                     reference.child(uid).setValue(hashMap);
-                                    startActivity(new Intent(SignInActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    Intent intent = new Intent(SignInActivity.this, ChoiceActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                    intent.putExtra("Uid", uid);
+                                    startActivity(intent);
                                     displayToast(getString(R.string.googleFBAS));
+
+                                    }else{
+                                        Intent intent = new Intent(SignInActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                    }
                                 } else {
                                     displayToast(getString(R.string.googleFBAF) + task.getException().getMessage());
                                 }

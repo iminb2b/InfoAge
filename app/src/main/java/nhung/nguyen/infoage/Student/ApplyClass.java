@@ -76,7 +76,7 @@ public class ApplyClass extends AppCompatActivity {
                 myRef.child(classid).setValue(classInfo);
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
                 DatabaseReference ref = db.getReference("Classes");
-                ref.child(classid).child(uid).setValue(uid);
+                ref.child(classid).child(uid).child("id").setValue(uid);
                 startActivity(new Intent(ApplyClass.this, StudentActivity.class));
             }
         });

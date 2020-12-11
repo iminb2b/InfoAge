@@ -113,17 +113,12 @@ public class StudentActivity extends AppCompatActivity  implements NavigationVie
             case R.id.classes:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AppliedClass()).commit();
                 break;
-            case R.id.carlendar:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
-                break;
+
             case R.id.nav_home:
                 Intent intent4 = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent4);
                 break;
-            case R.id.nav_teacher:
-                Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
-                startActivity(intent);
-                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START); return true;
     }

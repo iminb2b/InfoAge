@@ -86,14 +86,14 @@
         android:textColor="#fff"
         android:text="@string/or" />
 
-        <Button
+        <ImageButton
             android:id="@+id/gg_btn"
             android:layout_width="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_height="60dp"
-            android:text="@string/google"
-            android:background="@drawable/gg"
+            android:src="@drawable/googleofficial2"
+            android:background="#fff"
             android:textColor="#fff" />
 
 

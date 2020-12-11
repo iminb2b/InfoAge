@@ -1,5 +1,7 @@
 package nhung.nguyen.infoage.Class;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -79,9 +81,10 @@ public class Student extends Fragment {
     AdapterUser adapterUser;
     List<ModelUser> userList;
     ArrayList<String> std;
-    String[] st;
     TextView check;
-    String username;
+    String username, classid;
+    List<String> st;
+    SharedPreferences sharedPreferences;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,6 +92,9 @@ public class Student extends Fragment {
         View view = inflater.inflate(R.layout.fragment_student, container, false);
         recyclerView = view.findViewById(R.id.user_recyclerView);
         recyclerView.setHasFixedSize(true);
+        st = new ArrayList<>();
+        sharedPreferences = getActivity().getSharedPreferences("Class", Context.MODE_PRIVATE);
+        classid = sharedPreferences.getString("classid","");
         check = view.findViewById(R.id.check);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         userList = new ArrayList<>();
@@ -98,31 +104,44 @@ public class Student extends Fragment {
 //           // Glide.with(this).load(fUser.getPhotoUrl()).into(avatarIv);
 //            username = fUser.getDisplayName();
 //        }
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(getString(R.string.discussionPath));
-        ref.addValueEventListener(new ValueEventListener() {
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Classes").child(classid);
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()){
-                    String email = ds.child(getString(R.string.discussionEmail)).getValue().toString();
-                    String image = ds.child(getString(R.string.discussionImage)).getValue().toString();
-                    String name = ds.child("name").getValue().toString();
-                    String phone = ds.child(getString(R.string.discussionPhone)).getValue().toString();
-                    String uid = ds.child(getString(R.string.discussionUid)).getValue().toString();
-                    ModelUser modelUser= new ModelUser(email, image, name, phone, uid);
-                    userList.add(modelUser);
-                    adapterUser = new AdapterUser(getActivity(), userList);
-                    recyclerView.setAdapter(adapterUser);
+                    String student = ds.child("id").getValue().toString();
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users").child(student);
+                    ref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String email = snapshot.child(getString(R.string.discussionEmail)).getValue().toString();
+                                String image = snapshot.child(getString(R.string.discussionImage)).getValue().toString();
+                                String name = snapshot.child("name").getValue().toString();
+                                String phone = snapshot.child(getString(R.string.discussionPhone)).getValue().toString();
+                                String uid = snapshot.child(getString(R.string.discussionUid)).getValue().toString();
+                                ModelUser modelUser= new ModelUser(email, image, name, phone, uid);
+                                userList.add(modelUser);
+                                adapterUser = new AdapterUser(getActivity(), userList);
+                                recyclerView.setAdapter(adapterUser);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
+
+
+
+
 //        adapterUser = new AdapterUser(getActivity(), userList);
 //        recyclerView.setAdapter(adapterUser);
         return view;

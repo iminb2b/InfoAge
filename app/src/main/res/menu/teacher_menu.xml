@@ -8,14 +8,6 @@
         android:id="@+id/classes"
         android:title="@string/classes"
         />
-    <item android:title="@string/teacherMenuStudent"
-        android:id="@+id/nav_student">
-
-    </item>
-    <item
-        android:id="@+id/calendar"
-        android:title="@string/calendar"
-        />
 
     <item
         android:id="@+id/setting"

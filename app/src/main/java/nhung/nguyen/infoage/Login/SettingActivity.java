@@ -57,7 +57,7 @@ public class SettingActivity extends AppCompatActivity {
                     }
                 });
                 firebaseAuth.signOut();
-                startActivity(new Intent(SettingActivity.this, MainActivity.class));
+                startActivity(new Intent(SettingActivity.this,SignInActivity.class));
 
             }
         });

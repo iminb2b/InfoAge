@@ -50,20 +50,6 @@ public class MainActivity extends AppCompatActivity {
         editor = sharedPreferences.edit();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        sharedPreferences = getSharedPreferences("Remember", MODE_PRIVATE);
-        Boolean check = sharedPreferences.getBoolean("remember", false);
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-        if (check == true) {
-            if (currentUser != null) {
-
-                startActivity(new Intent(MainActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-            }
-        }
-    }
 
 }
