@@ -1,0 +1,179 @@
+<resources>
+    <string name = "app_name"> InfoAge </string>
+
+    // Pour les onglets
+    <string name = "HomeTabString"> Accueil </string>
+    <string name = "TeachersTabString"> Enseignants </string>
+    <string name = "StudentsTabString"> Etudiants </string>
+    <string name = "ForumsTabString"> Forums </string>
+
+
+    <string name = "navigation_drawer_open" translatable = "false"> Ouvrir le tiroir de navigation </string>
+    <string name = "navigation_drawer_close" translatable = "false"> Fermer le tiroir de navigation </string>
+    <string name = "hello_blank_fragment"> Bonjour fragment vierge </string>
+
+    // Pour les tiroirs
+    <string name = "HomeDrawerString"> Accueil </string>
+    <string name = "TeacherDrawerString"> Enseignants </string>
+    <string name = "StudentDrawerString"> Etudiants </string>
+    <string name = "ForumsDrawerString"> Forums </string>
+    <string name = "HelpAndSupportDrawerString"> Aide et support </string>
+    <string name = "message"> Messages </string>
+    <string name = "level"> Niveau </string>
+    <string name = "classes"> Classes </string>
+    <string name = "myStatistics"> Mes statistiques </string>
+    <string name = "setting"> Paramètres </string>
+    <string name = "calendar"> Agenda </string>
+    <string name = "name"> Nom </string>
+    <string name = "password"> Mot de passe </string>
+    <string name = "or"> Ou </string>
+    <string name = "google"> Google </string>
+    <string name = "facebook"> Facebook </string>
+    <string name = "signin"> Connexion </string>
+    <string name = "signup"> Inscription </string>
+    <string name = "rememberMe"> Se souvenir de moi </string>
+    <string name = "forgot_password"> Mot de passe oublié? </string>
+    <string name = "dont_have_account"> Vous n\'avez pas de compte? </string>
+    <string name = "msg1"> Restez connecté avec votre compte pour faciliter la recherche. </string>
+    <string name = "welcomeback"> Bienvenue à nouveau! </string>
+    <string name = "email"> E-mail </string>
+    <string name = "retype_password"> Retapez votre mot de passe </string>
+    <string name = "msg2"> </string>
+    <string name = "accept"> Accepter </string>
+    <string name = "term_of_service"> Conditions d\'utilisation </string>
+    <string name = "humber"> Collège Humber </string>
+    <string name = "introduce"> Présentation de la programmation Android </string>
+    <string name = "lostConnection"> Connexion perdue </string>
+    <string name = "lostConnectionBlurb"> Il semble que vous ayez perdu la connexion Internet </string>
+
+    <string name = "notFound"> ​​Page introuvable </string>
+    <string name = "notFoundBlurb"> Il semble que la page que vous recherchez ne soit plus. </string>
+    <string name = "notFound404"> 404 </string>
+    <string-array name = "addr">
+        <item> collège humber </item>
+        <item> collège humber </item>
+        <item> collège humber </item>
+        <item> collège humber </item>
+    </string-array>
+    <string-array name = "price">
+        <item> collège humber </item>
+        <item> collège humber </item>
+        <item> collège humber </item>
+        <item> collège humber </item>
+    </string-array>
+    <string-array name = "language">
+        <item> Anglais </item>
+        <item> Français </item>
+        <item> Vietnamien </item>
+    </string-array>
+    <string-array name = "day_in_week">
+        <item> Lundi </item>
+        <item> Mardi </item>
+        <item> Mercredi </item>
+        <item> Jeudi </item>
+        <item> Vendredi </item>
+        <item> Samedi </item>
+        <item> Dimanche </item>
+    </string-array>
+    <string-array name = "time">
+
+    </string-array>
+    <string name = "defa"> Par défaut </string>
+    <string name = "green"> Vert </string>
+    <string name = "red"> Rouge </string>
+    <string name = "postTitle"> Message: </string>
+    <string name = "apply"> Appliquer </string>
+    <string name = "discussionPath"> Utilisateurs </string>
+    <string name = "discussionUid"> uid </string>
+    <string name = "discussionName"> nom </string>
+    <string name = "discussionSender"> expéditeur </string>
+    <string name = "discussionMessage"> message </string>
+    <string name = "discussionChat"> Discussions </string>
+    <string name = "discussionBlank"> "" </string>
+    <string name = "discussionEmail"> email </string>
+    <string name = "discussionPhone"> téléphone </string>
+    <string name = "discussionImage"> image </string>
+
+
+
+    <string name = "signInEmail"> email </string>
+    <string name = "signInUid"> uid </string>
+    <string name = "signInName"> nom </string>
+    <string name = "signInPhone"> téléphone </string>
+    <string name = "signInImage"> image </string>
+    <string name = "signInBlank"> "" </string>
+    <string name = "signInPath"> Utilisateurs </string>
+    <string name = "settingSignout"> Déconnexion </string>
+    <string name = "signInIDRequestToken"> 1051380028326-lnkmdo5o4j275vl85f3bd4rfse6hsa2g.apps.googleusercontent.com </string>
+    <string name = "signInNameError"> Adresse e-mail non valide </string>
+    <string name = "signInPasswordLen"> Le mot de passe doit comporter plus de 6 caractères. </string>
+    <string name = "signInAuthFail"> L\'authentification a échoué. </string>
+    <string name = "signInOnFail"> Nom d\'utilisateur ou mot de passe incorrect </string>
+    <string name = "googleSignIn"> Connexion à Google réussie </string>
+    <string name = "googleFBAS"> authentification Firebase réussie </string>
+    <string name = "googleFBAF"> L\'authentification a échoué: </string>
+    <string name = "signUpCreationFail"> Échec de la création de l\'utilisateur </string>
+    <string name = "signUpPasswordLen"> Le mot de passe doit comporter plus de 6 caractères. </string>
+    <string name = "signUpEmailInvalid"> Adresse e-mail non valide </string>
+    <string name = "signUpEmptyEmail"> Un e-mail est obligatoire. </string>
+    <string name = "signUpEmptyPassword"> Le mot de passe est requis. </string>
+
+    <string name = "homeActivitySlogan"> N\'arrêtez jamais de rechercher des connaissances </string>
+    <string name = "homeActivityEng"> Anglais </string>
+    <string name = "homeActivityFn"> Français </string>
+    <string name = "homeActivityVt"> Vietnamien </string>
+    <string name = "homeActivitySearch"> Recherche </string>
+    <string name = "mainActivitySlogan"> N\'arrêtez jamais de rechercher des connaissances </string>
+    <string name = "mainActivitySignIn"> Connexion </string>
+    <string name = "mainActivitySignUp"> Inscription </string>
+    <string name = "newClassCreate"> Créer une nouvelle classe </string>
+    <string name = "newClassChooseLang"> Choisissez votre langue </string>
+    <string name = "newClassInstructorName"> Veuillez saisir le nom de l\'instructeur </string>
+    <string name = "newClassInstructorHint"> Nom de l\'instructeur </string>
+    <string name = "newClassDesc"> Description </string>
+    <string name = "newClassClass"> Créer une classe </string>
+
+    <string name = "settingsLogout"> Déconnexion </string>
+
+    <string name = "signInStay"> Restez connecté à votre compte pour faciliter la recherche. </string>
+    <string name = "signInReEnter"> Entrez à nouveau le mot de passe </string>
+    <string name = "signInEmailHint"> E-mail </string>
+    <string name = "signInAgreeTo"> Accepter </string>
+    <string name = "signInTOS"> Durée du service </string>
+    <string name = "signInAlready"> Vous avez déjà un compte? </string>
+    <string name = "signInSignIn"> Connexion </string>
+
+    <string name = "fragmentDiscussionStart"> Commencez à taper </string>
+
+    <string name = "profilePath"> Utilisateurs </string>
+    <string name = "profileName"> nom </string>
+    <string name = "profileEmail"> email </string>
+    <string name = "profilePhone"> téléphone </string>
+    <string name = "profileImage"> image </string>
+
+    <string name = "navHeaderCodingFlow"> Flux de codage </string>
+    <string name = "navHeaderEmail"> email@gmail.com </string>
+
+    <string name = "showChatMsg"> Mon msg </string>
+
+    <string name = "userPersonalName"> Nom personnel </string>
+    <string name = "userPersonalEmail"> E-mail personnel </string>
+
+    <string name = "studentEng"> Anglais </string>
+    <string name = "studentFn"> Français </string>
+    <string name = "studentVt"> Vietnamien </string>
+    <string name = "studentSearch"> Recherche </string>
+    <string name = "studentHello"> bonjour </string>
+    <string name = "studentLang"> lang </string>
+
+    <string name = "bottomMenuDashboard"> Tableau de bord </string>
+    <string name = "bottomMenuDiscuss"> Discuter </string>
+    <string name = "bottomMenuStudent"> Étudiant </string>
+    <string name = "menuSearch"> Recherche </string>
+    <string name = "drawerSettings"> Paramètre </string>
+    <string name = "studentDrawerHome"> Accueil </string>
+    <string name = "studentDrawerFindClass"> Rechercher une classe </string>
+    <string name = "studentDrawerTeacher"> Enseignant </string>
+    <string name = "teacherMenuHome"> Accueil </string>
+    <string name = "teacherMenuStudent"> Élève </string>
+</resources>
